@@ -1,0 +1,2 @@
+# SchoolDict
+MāoriDict

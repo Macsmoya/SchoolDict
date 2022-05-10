@@ -1,2 +1,2 @@
 # SchoolDict
-MāoriDict for school
+MāoriDict for school edit

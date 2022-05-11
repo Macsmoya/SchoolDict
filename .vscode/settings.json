@@ -1,3 +1,18 @@
 {
-    "terminal.integrated.mouseWheelScrollSensitivity": 0.2
+    "terminal.integrated.mouseWheelScrollSensitivity": 0.2,
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MariaDB",
+            "database": "dictdb",
+            "username": "root",
+            "name": "con",
+            "password": "Password123"
+        }
+    ]
 }

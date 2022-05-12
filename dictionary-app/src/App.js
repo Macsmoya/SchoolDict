@@ -28,9 +28,9 @@ function App() {
           Learn React
         </a>
         {currentTime == 0 ? 
-        <p>LOADING...</p>
+          <p>LOADING...</p>
         :
-        <p>The current time is {currentTime}.</p>
+          <p>The current time is {currentTime}.</p>
         }
       </header>
     </div>

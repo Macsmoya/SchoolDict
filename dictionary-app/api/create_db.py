@@ -37,13 +37,14 @@ words ='''CREATE TABLE "words" (
 	"ENG"	TEXT NOT NULL,
 	"TEREO"	TEXT NOT NULL,
     "DESC" TEXT NOT NULL,
+    "LEVEL" INTEGER NOT NULL,
+    Timestamp DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
     "AUTHOR" INTEGER NOT NULL,
     "CAT" INTEGER NOT NULL,
     FOREIGN KEY (AUTHOR) REFERENCES users (UID),
     FOREIGN KEY (CAT) REFERENCES categories (CATID)
 )'''
 cur.execute(words)
-
 
 
 #commit changes

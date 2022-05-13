@@ -1,6 +1,6 @@
 from functools import total_ordering
 import time
-from flask import Flask,render_template,request,redirect,url_for,flash
+from flask import Flask,render_template,request,redirect,url_for,flash, jsonify
 from flask_cors import CORS
 import json 
 import mariadb
@@ -15,13 +15,15 @@ CORS(app)
 
 def add_user(user):
     try:
+        print('here')
+        return 
         con = sql.connect("dict.db")
         cur = con.cursor()
         cur.execute("INSERT INTO users (UID, UNAME, EMAIL, PASSWORD, TEACHER) VALUES (NULL, ?, ?, ?, ?)",
-                    (user['name'],   
-                    user['email'], 
-                    user['password'], 
-                    user['teacher']) )
+                    ('max',   
+                     'max@max', 
+                     'pas', 
+                     1) )
         con.commit()
     except:
         con().rollback()
@@ -35,26 +37,22 @@ def get_users():
     users = []
     try:
         con = sql.connect("dict.db")
-        conn.row_factory = sqlite3.Row
-        cur = conn.cursor()
+        cur = con.cursor()
         cur.execute("SELECT * FROM users")
         rows = cur.fetchall()
 
         # convert row objects to dictionary
         for i in rows:
             user = {}
-            user["user_id"] = i["user_id"]
-            user["name"] = i["name"]
-            user["email"] = i["email"]
-            user["phone"] = i["phone"]
-            user["address"] = i["address"]
-            user["country"] = i["country"]
-            users.append(user)
+            user["UID"] = i["UID"]
+            user["UNAME"] = i["UNAME"]
+            user["PASSWORD"] = i["email"]
+            user["EMAIL"] = i["phone"]
+            user["TEACHER"] = i["address"]
 
     except:
         users = []
-
-    return users
+    return jsonify(rows)
 
 @app.route("/")
 @app.route("/index")
@@ -65,6 +63,41 @@ def index():
     data = cur.fetchall()
     return  " " + str(data)
 
+@app.route('/api/get-users')
+def get_user_page():
+    return get_users()
+
+@app.route('/api/add-user')
+def insert_user():
+    uname = "X"
+    email = "y"
+    password = "z"
+    teacher = 1
+    try:
+        conn = sql.connect("dict.db")
+        cur = conn.cursor()
+        cur.execute("INSERT INTO users (UID, UNAME, EMAIL, PASSWORD, TEACHER) VALUES (NULL, ?, ?, ?, ?)", (
+            uname,   
+            email,
+            password,
+            teacher
+            ))
+        conn.commit()
+    except:
+        conn().rollback()
+
+    finally:
+        conn.close()
+
+    return "200"    
+
+
+
+    con = sql.connect('dict.db')
+    cur = con.cursor()
+    cur.execute('INSERT INTO users (UID, UNAME, EMAIL, PASSWORD, TEACHER) VALUES (NULL, "MAX", "MAX@MAX", "123", true);')
+    con.close()
+    return "200"
 
 @app.route('/api/time')
 def get_current_time():

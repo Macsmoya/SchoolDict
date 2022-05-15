@@ -165,16 +165,45 @@ def get_cat_by_id(id: int):
 
 #CRUD update for each
 
+
 #CRUD delete for each
 @app.route('/api/delete-user/<int:id>')
 def del_user_by_id(id: int):
     try:
         con = sql.connect("dict.db")
         cur = con.cursor()
-        cur.execute("DELETE * FROM categories where uid = ?", (id, ))
-        con.close()
+        cur.execute("DELETE * FROM users where uid = ?", (id, ))
+        con.commit()
     except:
         return {}
+    finally:
+        con.close()
+    return "200"
+
+@app.route('/api/delete-word/<int:id>')
+def del_word_by_id(id: int):
+    try:
+        con = sql.connect("dict.db")
+        cur = con.cursor()
+        cur.execute("DELETE * FROM words where wordid = ?", (id, ))
+        con.commit()
+    except:
+        return {}
+    finally:
+        con.close()
+    return "200"
+
+@app.route('/api/delete-cat/<int:id>')
+def del_cat_by_id(id: int):
+    try:
+        con = sql.connect("dict.db")
+        cur = con.cursor()
+        cur.execute("DELETE * FROM categories where catid = ?", (id, ))
+        con.commit()
+    except:
+        return {}
+    finally:
+        con.close()
     return "200"
 #TODO Fix ports #1
 

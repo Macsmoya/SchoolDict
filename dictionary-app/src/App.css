@@ -15,8 +15,8 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-body {
-  padding-top: 25px;
+.page-content {
+  padding-top: 50px;
 }
 .App-link {
   color: #61dafb;

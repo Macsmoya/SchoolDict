@@ -8,7 +8,7 @@ function DictTab(props){
     >
         { myTabs([1, "Test"]) }
         { myTabs([2, "Test"]) }
-        { myTabs([3, "yoza"]) }
+        { myTabs([3, "Next word"]) }
         <Tabs.Expander />
     </Tabs>)
 }
@@ -18,7 +18,11 @@ function myTabs(props){
   }
 
 function makePanel(props){
-  return <p>{props}</p>
+  return (<div>
+            <h1>{props[1]}</h1>
+            <h2>{props[0]}</h2>
+          </div>
+        )
 }
 
 export default DictTab

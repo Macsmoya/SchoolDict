@@ -18,7 +18,7 @@ function App() {
 
   //TODO #2
   useEffect(() => {
-    fetch('http://localhost:5000/api/get-users').then(res => res.json()).then(data => {
+    fetch('http://localhost:5000/api/retreive-users').then(res => res.json()).then(data => {
 
       setCurrentItemList(data.map((item,index)=>{
         return <li key={index}>{item}</li>
@@ -27,6 +27,15 @@ function App() {
       console.log(data)
     });
   }, []);
+
+  useEffect(() => {
+    fetch('http://localhost:5000/api/retreive-categories').then(res => res.json()).then(data => {
+      setCurrentItemList(data.map((item,index)=>{
+        return <li key={index}>{item}</li>
+       }))
+    });
+  }, []);
+  
 
   return (
     <div className="App"> 
@@ -40,7 +49,7 @@ function App() {
           </Navbar.Group>
         </Navbar>
       </header>
-      <body>
+      <div className='page-content'>
 
         {  currentTab === 'dict' ?
           DictTab('test') 
@@ -72,7 +81,7 @@ function App() {
         <ul>
           { itemList }
         </ul>
-      </body>
+      </div>
 
     </div>
   );

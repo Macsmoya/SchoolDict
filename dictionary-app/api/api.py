@@ -13,47 +13,6 @@ import sqlite3 as sql
 app = Flask(__name__)
 CORS(app)
 
-def add_user(user):
-    try:
-        print('here')
-        return 
-        con = sql.connect("dict.db")
-        cur = con.cursor()
-        cur.execute("INSERT INTO users (UID, UNAME, EMAIL, PASSWORD, TEACHER) VALUES (NULL, ?, ?, ?, ?)",
-                    ('max',   
-                     'max@max', 
-                     'pas', 
-                     1) )
-        con.commit()
-    except:
-        con().rollback()
-
-    finally:
-        con.close()
-
-    return cur.lastrowid
-
-def get_users():
-    users = []
-    try:
-        con = sql.connect("dict.db")
-        cur = con.cursor()
-        cur.execute("SELECT * FROM users")
-        rows = cur.fetchall()
-
-        # convert row objects to dictionary
-        for i in rows:
-            user = {}
-            user["UID"] = i["UID"]
-            user["UNAME"] = i["UNAME"]
-            user["PASSWORD"] = i["email"]
-            user["EMAIL"] = i["phone"]
-            user["TEACHER"] = i["address"]
-
-    except:
-        users = []
-    return jsonify(rows)
-
 @app.route("/")
 @app.route("/index")
 def index():
@@ -63,20 +22,13 @@ def index():
     data = cur.fetchall()
     return  " " + str(data)
 
-@app.route('/api/get-users')
-def get_user_page():
-    return get_users()
-
-@app.route('/api/add-user')
-def insert_user():
-    uname = "X"
-    email = "y"
-    password = "z"
-    teacher = 1
+#CRUD create for each table ---------------------------------------|
+@app.route('/api/create-user/<string:uname>/<string:email>/<string:password>/<int:teacher>')
+def create_user(uname: str, email: str, password: str, teacher: int):
     try:
         conn = sql.connect("dict.db")
         cur = conn.cursor()
-        cur.execute("INSERT INTO users (UID, UNAME, EMAIL, PASSWORD, TEACHER) VALUES (NULL, ?, ?, ?, ?)", (
+        cur.execute("INSERT INTO users (uid, uname, email, password, teacher) VALUES (NULL, ?, ?, ?, ?)", (
             uname,   
             email,
             password,
@@ -85,25 +37,69 @@ def insert_user():
         conn.commit()
     except:
         conn().rollback()
-
     finally:
         conn.close()
-
-    return "200"    
-
-
-
-    con = sql.connect('dict.db')
-    cur = con.cursor()
-    cur.execute('INSERT INTO users (UID, UNAME, EMAIL, PASSWORD, TEACHER) VALUES (NULL, "MAX", "MAX@MAX", "123", true);')
-    con.close()
     return "200"
 
-@app.route('/api/time')
-def get_current_time():
-    return {'time': time.time()}
+@app.route('/api/create-word/<string:eng>/<string:tereo>/<string:desc>/<int:level>/<int:author>/<int:cat>')
+def create_word(eng: str, tereo: str, desc: str, level: int, author: int, cat: int):
+    try:
+        conn = sql.connect("dict.db")
+        cur = conn.cursor()
+        cur.execute("INSERT INTO words (wordid, eng, tereo, desc, level, author, cat) VALUES (NULL, ?, ?, ?, ?, ?, ?)", (
+            eng,   
+            tereo,
+            desc,
+            level,
+            author,
+            cat
+            ))
+        conn.commit()
+    except:
+        conn().rollback()
+    finally:
+        conn.close()
+    return "200"
 
 
+
+#CRUD retreive for each table -------------------------------------|
+@app.route('/api/retreive-users')
+def retreive_users():
+    try:
+        con = sql.connect("dict.db")
+        cur = con.cursor()
+        cur.execute("SELECT * FROM users")
+        rows = cur.fetchall()
+    except:
+        return {}
+    return jsonify(rows)
+
+@app.route('/api/retreive-words')
+def retreive_words():
+    try:
+        con = sql.connect("dict.db")
+        cur = con.cursor()
+        cur.execute("SELECT * FROM words")
+        rows = cur.fetchall()
+    except:
+        return {}
+    return jsonify(rows)
+
+@app.route('/api/retreive-categories')
+def get_cats():
+    try:
+        con = sql.connect("dict.db")
+        cur = con.cursor()
+        cur.execute("SELECT * FROM categories")
+        rows = cur.fetchall()
+    except:
+        return {}
+    return jsonify(rows)
+
+#CRUD update for each
+
+#CRUD delete for each
 
 #TODO Fix ports #1
 

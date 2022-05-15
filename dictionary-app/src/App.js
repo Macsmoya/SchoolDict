@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Button, Spinner, Navbar} from "@blueprintjs/core";
+import DictTab from './components/DictTab';
 
 function Welcome(props) {
   return <h1>Hello, {props}</h1>;
@@ -8,20 +10,46 @@ function Welcome(props) {
 
 
 function App() {
-  const [currentTime, setCurrentTime] = useState(0);
+  const [currentUser, setCurrentUser] = useState(0);
+  const [itemList, setCurrentItemList] = useState(0);
+  //const [currentTab, setCurrentTab] = useState(0);
+  //setCurrentTab('dict')
+  const currentTab = 'dict'
 
   //TODO #2
   useEffect(() => {
     fetch('http://localhost:5000/api/get-users').then(res => res.json()).then(data => {
 
-      setCurrentTime(data[0][1]);
+      setCurrentItemList(data.map((item,index)=>{
+        return <li key={index}>{item}</li>
+       }))
+      setCurrentUser(data[0][1]);
       console.log(data)
     });
   }, []);
 
   return (
-    <div className="App">
+    <div className="App"> 
       <header className="App-header">
+        <Navbar fixedToTop={true}>
+          <Navbar.Group>
+              <Navbar.Heading> M&#257;ori Dictionary</Navbar.Heading>
+              <Navbar.Divider />
+              <Button className="bp4-minimal" icon="home" text="Admin"/>
+              <Button className="bp4-minimal" icon="document" text="Files" />
+          </Navbar.Group>
+        </Navbar>
+      </header>
+      <body>
+
+        {  currentTab === 'dict' ?
+          DictTab('test') 
+          :
+          <p >LKogin</p>
+        }
+        <div>
+
+        </div>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -35,14 +63,20 @@ function App() {
 
           Learn React
         </a>
-        {currentTime === 0 ? 
-          <p>LOADING...</p>
+        {currentUser === 0 ? 
+
+            <Spinner intent="primary"/>
         :
-        Welcome(currentTime)
+        Welcome(currentUser)
         }
-      </header>
+        <ul>
+          { itemList }
+        </ul>
+      </body>
+
     </div>
   );
 }
 
 export default App;
+

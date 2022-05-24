@@ -4,7 +4,6 @@ from typing import final
 from flask import Flask,render_template,request,redirect,url_for,flash, jsonify
 from flask_cors import CORS
 import json 
-import mariadb
 import sqlite3 as sql
 
 #SET "PATH=C:\Program Files\MariaDB 10.6\bin;%PATH%"        
@@ -38,8 +37,6 @@ def create_user(uname: str, email: str, password: str, teacher: int):
         conn.commit()
     except:
         conn().rollback()
-    finally:
-        conn.close()
     return "200"
 
 @app.route('/api/create-word/<string:eng>/<string:tereo>/<string:desc>/<int:level>/<int:author>/<int:cat>')
@@ -58,8 +55,6 @@ def create_word(eng: str, tereo: str, desc: str, level: int, author: int, cat: i
         conn.commit()
     except:
         conn().rollback()
-    finally:
-        conn.close()
     return "200"
 
 @app.route('/api/create-category/<string:name>/<string:desc>/<int:author>')
@@ -75,8 +70,6 @@ def create_category(name: str, desc: str, author: int):
         conn.commit()
     except:
         conn().rollback()
-    finally:
-        conn.close()
     return "200"
 
 
@@ -92,8 +85,6 @@ def retreive_users():
         con.commit()
     except:
         return {}
-    finally:
-        con.close()
     return jsonify(rows)
 
 @app.route('/api/retreive-words')
@@ -106,8 +97,6 @@ def retreive_words():
         con.commit
     except:
         return {}
-    finally:
-        con.close()
     return jsonify(rows)
 
 @app.route('/api/retreive-categories')
@@ -120,8 +109,6 @@ def get_cats():
         con.commit()
     except:
         return {}
-    finally:
-        con.close()
     return jsonify(rows)
 
 @app.route('/api/get-user/<int:uid>')
@@ -133,8 +120,6 @@ def get_user_by_id(uid: int):
         con.commit()
     except:
         return {}
-    finally:
-        con.close()
     return jsonify(cur.fetchall()[0])
 
 @app.route('/api/get-word/<int:id>')
@@ -146,8 +131,17 @@ def get_word_by_id(id: int):
         con.commit()
     except:
         return {}
-    finally:
-        con.close()
+    return jsonify(cur.fetchall()[0])
+
+@app.route('/api/get-word-cat/<int:id>')
+def get_word_by_cat(id: int):
+    try:
+        con = sql.connect("dict.db")
+        cur = con.cursor()
+        cur.execute("SELECT * FROM words where cat = ?", (id, ))
+        con.commit()
+    except:
+        return {}
     return jsonify(cur.fetchall()[0])
 
 @app.route('/api/get-cat/<int:id>')
@@ -159,8 +153,6 @@ def get_cat_by_id(id: int):
         con.commit()
     except:
         return {}
-    finally:
-        con.close()
     return jsonify(cur.fetchall()[0])
 
 #CRUD update for each
@@ -172,12 +164,11 @@ def del_user_by_id(id: int):
     try:
         con = sql.connect("dict.db")
         cur = con.cursor()
-        cur.execute("DELETE * FROM users where uid = ?", (id, ))
+        cur.execute("DELETE FROM users where uid = ?", (id, ))
+        print("User deleted")
         con.commit()
     except:
         return {}
-    finally:
-        con.close()
     return "200"
 
 @app.route('/api/delete-word/<int:id>')
@@ -185,12 +176,10 @@ def del_word_by_id(id: int):
     try:
         con = sql.connect("dict.db")
         cur = con.cursor()
-        cur.execute("DELETE * FROM words where wordid = ?", (id, ))
+        cur.execute("DELETE FROM words where wordid = ?", (id, ))
         con.commit()
     except:
         return {}
-    finally:
-        con.close()
     return "200"
 
 @app.route('/api/delete-cat/<int:id>')
@@ -198,12 +187,10 @@ def del_cat_by_id(id: int):
     try:
         con = sql.connect("dict.db")
         cur = con.cursor()
-        cur.execute("DELETE * FROM categories where catid = ?", (id, ))
+        cur.execute("DELETE FROM categories where catid = ?", (id, ))
         con.commit()
     except:
         return {}
-    finally:
-        con.close()
     return "200"
 #TODO Fix ports #1
 

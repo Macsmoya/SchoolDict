@@ -1,7 +1,7 @@
 import sqlite3 as sql
 
 #connect to SQLite
-con = sql.connect('api/dict.db')
+con = sql.connect('dict.db')
 
 #Create a Connection
 cur = con.cursor()

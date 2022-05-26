@@ -1,0 +1,302 @@
+Null, to shout       , hamama             , To call out loudly.                                                                    , 3 , 1, 1
+Null, come           , haramai (haere mai), To move towards someone.                                                               , 2 , 1, 1
+Null, to carry       , hari               , To move an object from one place to another.                                           , 5 , 1, 1
+Null, to raise       , hiki               , To lift something up.                                                                  , 8 , 1, 1
+Null, to walk        , hikoi              , To move from one place to another by moving one's feet slowly.                         , 4 , 1, 1
+Null, to row         , hoe                , To move through water in a boat with oars                                              , 3 , 1, 1
+Null, to shop        , hokohoko           , To buy things.                                                                         , 9 , 1, 1
+Null, to catch       , hopu               , To take hold of something that is moving.                                              , 9 , 1, 1
+Null, to clean       , horoi              , To remove dirt.                                                                        , 6 , 1, 1
+Null, to climb       , kake               , To go move upwards.                                                                    , 10, 1, 1
+Null, dance          , kanikani           , To move to music.                                                                      , 3 , 1, 1
+Null, to laugh       , kata               , To make sounds expressing amusement / joy.                                             , 4 , 1, 1
+Null, to swim        , kauhoe             , To move through water using ones arms and legs.                                        , 1 , 1, 1
+Null, to bathe       , kaukau             , To get clean using water.                                                              , 7 , 1, 1
+Null, to see         , kite               , To take in information using ones eyes.                                                , 7 , 1, 1
+Null, to speak       , korero             , To say something                                                                       , 1 , 1, 1
+Null, to discuss     , korerorero         , To take turns talking about a topic.                                                   , 9 , 1, 1
+Null, to pull        , kukume             , To drag something towards oneself                                                      , 5 , 1, 1
+Null, to fall        , makere             , To land on the ground after being higher up (often painful).                           , 5 , 1, 1
+Null, to watch       , mataki             , To observe something.                                                                  , 3 , 1, 1
+Null, to greet       , mihi               , To say hello / good bye.                                                               , 7 , 1, 1
+Null, to marry       , moe                , To commit to be with someone else with the purpose of starting a family.               , 3 , 1, 1
+Null, to sleep       , moe                , To rest (dreaming may be involved)                                                     , 6 , 1, 1
+Null, to dream       , moemoea            , To see images / experience something that is not really happening (when sleeping).     , 3 , 1, 1
+Null, to sit         , noho               , Opposite of standing.  Often done on a chair but some16s done on the floor.            , 10, 1, 1
+Null, to live        , noho               , Opposite of being dead.                                                                , 10, 1, 1
+Null, to stay        , noho               , To remain in one place.                                                                , 3 , 1, 1
+Null, to move        , nuku               , To go from one place to another.                                                       , 9 , 1, 1
+Null, to wake up     , oho                , To stop sleeping.                                                                      , 4 , 1, 1
+Null, to read        , panui              , To interpret the meaning of written words.                                             , 5 , 1, 1
+Null, to kill        , patu               , To take a life.                                                                        , 10, 1, 1
+Null, to sail        , rere               , To travel on water (boats are involved).                                               , 1 , 1, 1
+Null, to fly         , rere               , To travel through the air (requires wings / aircraft).                                 , 8 , 1, 1
+Null, to escape      , rere               , To get away from a person / place.                                                     , 10, 1, 1
+Null, to flow        , rere               , To move smoothly (often involves water / liquid).                                      , 5 , 1, 1
+Null, to dive        , ruku               , To enter water from a height.                                                          , 9 , 1, 1
+Null, to play        , takaro             , To be involved in a game.                                                              , 6 , 1, 1
+Null, to allow       , tuku               , To let something happen.                                                               , 1 , 1, 1
+Null, to send        , tuku               , To make something go somewhere.                                                        , 4 , 1, 1
+Null, to sing        , waiata             , To make musical sounds                                                                 , 10, 1, 1
+Null, chicken        , heihei             , Bird that tastes good when roasted.                                                    , 10, 1, 2
+Null, sheep          , hipi               , Animal that provides wool.                                                             , 2 , 1, 2
+Null, horse          , hoiho              , Animal that can be ridden / raced.                                                     , 4 , 1, 2
+Null, feather        , huruhuru           , Covering of birds.                                                                     , 2 , 1, 2
+Null, fish           , ika                , "Animal that lives in water has fins and scales."                                      , 3 , 1, 2
+Null, animal         , kararehe           , Living thing that is not a plant.                                                      , 8 , 1, 2
+Null, cow            , kau                , Animal that gives milk and goes 'moo'.                                                 , 3 , 1, 2
+Null, calf           , kawhe              , Baby cow.                                                                              , 5 , 1, 2
+Null, rat            , kiore              , Pest that eats just about anything.                                                    , 7 , 1, 2
+Null, kiwi           , kiwi               , Native bird with long beak (cannot fly).                                               , 9 , 1, 2
+Null, white heron    , kotuku             , Native bird with white feathers and long graceful neck (not to be confused with swans)., 1 , 1, 2
+Null, dog            , kuri               , Animal which can be trained to 'fetch'.                                                , 9 , 1, 2
+Null, bird           , manu               , Animal with feathers and wings (can usually fly).                                      , 9 , 1, 2
+Null, pet            , mokai              , Animal which is cared for by humans.                                                   , 8 , 1, 2
+Null, lizard         , moko               , "Animal with four legs a long body and very small scales."                             , 2 , 1, 2
+Null, reptile        , ngarara            , "2 which lay leathery eggs eg: turtles crocodiles and lizards."                        , 4 , 1, 2
+Null, snail          , ngata              , Slimy garden pest which has a shell.                                                   , 1 , 1, 2
+Null, cat            , ngeru              , "Furry pet which eats mice birds and cat 7."                                           , 4 , 1, 2
+Null, worm           , noke               , Long animal without legs.  Often soft and squishy.                                     , 5 , 1, 2
+Null, bear           , pea                , Large animal with claws and teeth.   Not native to New Zealand.                        , 6 , 1, 2
+Null, bee            , pi                 , Yellow and black insect which makes honey                                              , 9 , 1, 2
+Null, pig            , poaka              , Animal that we use to get bacon / pork.                                                , 10, 1, 2
+Null, frog           , poraka             , "Animal found in rivers streams can live both in water and on land."                   , 10, 1, 2
+Null, spider         , pungawerewere      , Animal that makes webs to catch 7.                                                     , 5 , 1, 2
+Null, butterfly      , purerehua          , Animal that has beautiful wings and comes out of a crysalis.                           , 1 , 1, 2
+Null, fly            , rango              , Annoying pest that often feeds on rotten 7 (and other gross substances).               , 6 , 1, 2
+Null, whale          , tohora             , Large mammal that lives in the ocean (not to be confused with fish).                   , 9 , 1, 2
+Null, albatross      , toroa              , Large bird that lives near the sea.                                                    , 3 , 1, 2
+Null, spider web     , tukutuku           , Trap made by spiders                                                                   , 5 , 1, 2
+Null, eel            , tuna               , Long slimy fish (can be good to eat).                                                  , 9 , 1, 2
+Null, shoe           , hu                 , Covering that is worn on one's feet.                                                   , 7 , 1, 3
+Null, cloak          , kahu               , Pending                                                                                , 5 , 1, 3
+Null, garment        , kakahu             , Pending                                                                                , 4 , 1, 3
+Null, thread         , miro               , Pending                                                                                , 2 , 1, 3
+Null, flax skirt     , piupiu             , Pending                                                                                , 3 , 1, 3
+Null, jersey         , poraka             , Pending                                                                                , 7 , 1, 3
+Null, hat            , potae              , Pending                                                                                , 7 , 1, 3
+Null, trousers       , tarau              , Pending                                                                                , 7 , 1, 3
+Null, socks          , tokena             , Pending                                                                                , 2 , 1, 3
+Null, god            , atua               , Pending                                                                                , 4 , 1, 4
+Null, war dance      , haka               , Pending                                                                                , 4 , 1, 4
+Null, flag           , haki               , Pending                                                                                , 7 , 1, 4
+Null, prayer         , karakia            , Pending                                                                                , 6 , 1, 4
+Null, ghost          , kehua              , Pending                                                                                , 2 , 1, 4
+Null, basket         , kete               , Pending                                                                                , 3 , 1, 4
+Null, marae          , marae              , Pending                                                                                , 9 , 1, 4
+Null, life spirit    , mauri              , Pending                                                                                , 2 , 1, 4
+Null, greenstone     , pounamu            , Pending                                                                                , 5 , 1, 4
+Null, spirit         , wairua             , Pending                                                                                , 2 , 1, 4
+Null, smelly         , haunga             , Pending                                                                                , 2 , 1, 5
+Null, blue           , kahurangi          , Pending                                                                                , 2 , 1, 5
+Null, green          , kakariki           , Pending                                                                                , 10, 1, 5
+Null, colour         , kano               , Pending                                                                                , 8 , 1, 5
+Null, orange         , karaka             , Pending                                                                                , 1 , 1, 5
+Null, sharp          , koi                , Pending                                                                                , 8 , 1, 5
+Null, yellow         , kowhai             , Pending                                                                                , 4 , 1, 5
+Null, red            , kura               , Pending                                                                                , 1 , 1, 5
+Null, white          , ma                 , Pending                                                                                , 10, 1, 5
+Null, warm           , mahana             , Pending                                                                                , 10, 1, 5
+Null, easy           , mama               , Pending                                                                                , 1 , 1, 5
+Null, sore           , mamae              , Pending                                                                                , 4 , 1, 5
+Null, cold           , matao              , Pending                                                                                , 1 , 1, 5
+Null, hungry         , matekai            , Pending                                                                                , 6 , 1, 5
+Null, majority       , nuinga             , Pending                                                                                , 8 , 1, 5
+Null, small          , paku               , Pending                                                                                , 7 , 1, 5
+Null, very small     , pakupaku           , Pending                                                                                , 6 , 1, 5
+Null, black          , pango              , Pending                                                                                , 9 , 1, 5
+Null, brown          , parauri            , Pending                                                                                , 10, 1, 5
+Null, short          , poto               , Pending                                                                                , 7 , 1, 5
+Null, engine         , pukaha             , Pending                                                                                , 10, 1, 5
+Null, sweet          , reka               , Pending                                                                                , 6 , 1, 5
+Null, brave          , toa                , Pending                                                                                , 9 , 1, 5
+Null, love           , aroha              , Pending                                                                                , 8 , 1, 6
+Null, worried        , awangawanga        , Pending                                                                                , 10, 1, 6
+Null, happy          , harikoa            , Pending                                                                                , 6 , 1, 6
+Null, no!            , kao                , Pending                                                                                , 10, 1, 6
+Null, bad            , kino               , Pending                                                                                , 7 , 1, 6
+Null, happy          , koa                , Pending                                                                                , 5 , 1, 6
+Null, scared         , mataku             , Pending                                                                                , 8 , 1, 6
+Null, lonely         , mokemoke           , Pending                                                                                , 5 , 1, 6
+Null, tears          , roimata            , Pending                                                                                , 9 , 1, 6
+Null, to cry         , tangi              , Pending                                                                                , 1 , 1, 6
+Null, ice cream      , aihikirimi         , Pending                                                                                , 8 , 1, 7
+Null, apple          , aporo              , Pending                                                                                , 7 , 1, 7
+Null, feast          , hakari             , Pending                                                                                , 6 , 1, 7
+Null, oven           , hangi              , Pending                                                                                , 1 , 1, 7
+Null, egg            , heki               , Pending                                                                                , 9 , 1, 7
+Null, oil            , hinu               , Pending                                                                                , 7 , 1, 7
+Null, fruit          , hua                , Pending                                                                                , 3 , 1, 7
+Null, sugar          , huka               , Pending                                                                                , 4 , 1, 7
+Null, to drink       , inu                , Pending                                                                                , 4 , 1, 7
+Null, 7              , kai                , Pending                                                                                , 10, 1, 7
+Null, sea7           , kaimoana           , Pending                                                                                , 5 , 1, 7
+Null, seed           , kakano             , Pending                                                                                , 6 , 1, 7
+Null, corn           , kanga              , Pending                                                                                , 1 , 1, 7
+Null, cup            , kapu               , Pending                                                                                , 9 , 1, 7
+Null, carrot         , kareti             , Pending                                                                                , 9 , 1, 7
+Null, cake           , keke               , Pending                                                                                , 10, 1, 7
+Null, to boil        , kohua              , Pending                                                                                , 9 , 1, 7
+Null, sweet potato   , kumara             , Pending                                                                                , 7 , 1, 7
+Null, honey          , miere              , Pending                                                                                , 7 , 1, 7
+Null, milk           , miraka             , Pending                                                                                , 2 , 1, 7
+Null, meat           , miti               , Pending                                                                                , 1 , 1, 7
+Null, banana         , panana             , Pending                                                                                , 3 , 1, 7
+Null, breakfast      , parakuihi          , Pending                                                                                , 10, 1, 7
+Null, butter         , pata               , Pending                                                                                , 6 , 1, 7
+Null, flounder (fish), patiki             , Pending                                                                                , 2 , 1, 7
+Null, abalone        , paua               , Pending                                                                                , 7 , 1, 7
+Null, pear           , pea                , Pending                                                                                , 7 , 1, 7
+Null, bacon          , pekana             , Pending                                                                                , 8 , 1, 7
+Null, potato         , riwai              , Pending                                                                                , 2 , 1, 7
+Null, to cook        , tao                , Pending                                                                                , 4 , 1, 7
+Null, tea            , ti                 , Pending                                                                                , 5 , 1, 7
+Null, salt           , tote               , Pending                                                                                , 5 , 1, 7
+Null, water          , wai                , Pending                                                                                , 2 , 1, 7
+Null, juice          , wai                , Pending                                                                                , 3 , 1, 7
+Null, half           , haurua             , Pending                                                                                , 2 , 1, 8
+Null, how many?      , hia                , Pending                                                                                , 9 , 1, 8
+Null, nine           , iwa                , Pending                                                                                , 6 , 1, 8
+Null, to count       , kaute              , Pending                                                                                , 6 , 1, 8
+Null, graph          , kauwhata           , Pending                                                                                , 3 , 1, 8
+Null, kilometre      , kiromita           , Pending                                                                                , 7 , 1, 8
+Null, one            , kotahi             , Pending                                                                                , 2 , 1, 8
+Null, many           , maha               , Pending                                                                                , 5 , 1, 8
+Null, thousand       , mano               , Pending                                                                                , 8 , 1, 8
+Null, million        , miriona            , Pending                                                                                , 10, 1, 8
+Null, metre          , mita               , Pending                                                                                , 4 , 1, 8
+Null, number         , nama               , Pending                                                                                , 2 , 1, 8
+Null, six            , ono                , Pending                                                                                , 10, 1, 8
+Null, circumference  , pae                , Pending                                                                                , 8 , 1, 8
+Null, mathematics    , pangarau           , Pending                                                                                , 6 , 1, 8
+Null, hundred        , rau                , Pending                                                                                , 10, 1, 8
+Null, five           , rima               , Pending                                                                                , 5 , 1, 8
+Null, two            , rua                , Pending                                                                                , 7 , 1, 8
+Null, ten            , tekau              , Pending                                                                                , 5 , 1, 8
+Null, three          , toru               , Pending                                                                                , 8 , 1, 8
+Null, second         , tuarua             , Pending                                                                                , 8 , 1, 8
+Null, first          , tuatahi            , Pending                                                                                , 4 , 1, 8
+Null, third          , tuatoru            , Pending                                                                                , 9 , 1, 8
+Null, fourth         , tuawha             , Pending                                                                                , 3 , 1, 8
+Null, four           , wha                , Pending                                                                                , 5 , 1, 8
+Null, fire           , ahi                , Pending                                                                                , 8 , 1, 9
+Null, cave           , ana                , Pending                                                                                , 4 , 1, 9
+Null, shell          , anga               , Pending                                                                                , 3 , 1, 9
+Null, planet         , aorangi            , Pending                                                                                , 1 , 1, 9
+Null, path           , ara                , Pending                                                                                , 4 , 1, 9
+Null, smoke          , auahi              , Pending                                                                                , 1 , 1, 9
+Null, river          , awa                , Pending                                                                                , 4 , 1, 9
+Null, daylight       , awatea             , Pending                                                                                , 1 , 1, 9
+Null, journey        , haerenga           , Pending                                                                                , 3 , 1, 9
+Null, flax           , harakeke           , Pending                                                                                , 8 , 1, 9
+Null, ice            , huka               , Pending                                                                                , 3 , 1, 9
+Null, cloud          , kapua              , Pending                                                                                , 8 , 1, 9
+Null, sand           , kirikiri           , Pending                                                                                , 2 , 1, 9
+Null, nest           , kohanga            , Pending                                                                                , 5 , 1, 9
+Null, stone          , kohatu             , Pending                                                                                , 3 , 1, 9
+Null, cold           , makariri           , Pending                                                                                , 1 , 1, 9
+Null, stream         , manga              , Pending                                                                                , 9 , 1, 9
+Null, garden         , mara               , Pending                                                                                , 5 , 1, 9
+Null, rain           , marangai           , Pending                                                                                , 10, 1, 9
+Null, mountain       , maunga             , Pending                                                                                , 1 , 1, 9
+Null, sea            , moana              , Pending                                                                                , 7 , 1, 9
+Null, island         , motu               , Pending                                                                                , 8 , 1, 9
+Null, forest         , ngahere            , Pending                                                                                , 1 , 1, 9
+Null, wave           , ngaru              , Pending                                                                                , 9 , 1, 9
+Null, stone          , pohatu             , Pending                                                                                , 6 , 1, 9
+Null, hill           , puke               , Pending                                                                                , 3 , 1, 9
+Null, hot spring     , waiariki           , Pending                                                                                , 10, 1, 9
+Null, canoe          , waka               , Pending                                                                                , 8 , 1, 9
+Null, leader         , ariki              , Pending                                                                                , 6 , 1, 10
+Null, pregnant       , hapu               , Pending                                                                                , 2 , 1, 10
+Null, healthy        , hauora             , Pending                                                                                , 9 , 1, 10
+Null, intellect      , hinengaro          , Pending                                                                                , 2 , 1, 10
+Null, friend         , hoa                , Pending                                                                                , 6 , 1, 10
+Null, enemy          , hoariri            , Pending                                                                                , 7 , 1, 10
+Null, soldier        , hoia               , Pending                                                                                , 1 , 1, 10
+Null, nose           , ihu                , Pending                                                                                , 2 , 1, 10
+Null, tribe          , iwi                , Pending                                                                                , 8 , 1, 10
+Null, speaker        , kaikorero          , Pending                                                                                , 2 , 1, 10
+Null, worker         , kaimahi            , Pending                                                                                , 3 , 1, 10
+Null, scientist      , kaiputaiao         , Pending                                                                                , 7 , 1, 10
+Null, author         , kaituhi            , Pending                                                                                , 4 , 1, 10
+Null, manager        , kaiwhakahaere      , Pending                                                                                , 2 , 1, 10
+Null, neck           , kaki               , Pending                                                                                , 2 , 1, 10
+Null, eye            , kamo               , Pending                                                                                , 8 , 1, 10
+Null, face           , kanohi             , Pending                                                                                , 7 , 1, 10
+Null, captain        , kapene             , Pending                                                                                , 4 , 1, 10
+Null, grandmother    , karani             , Pending                                                                                , 1 , 1, 10
+Null, messenger      , karere             , Pending                                                                                , 4 , 1, 10
+Null, eye            , karu               , Pending                                                                                , 9 , 1, 10
+Null, elder          , kaumatua           , Pending                                                                                , 8 , 1, 10
+Null, government     , kawanatanga        , Pending                                                                                , 1 , 1, 10
+Null, skin           , kiri               , Pending                                                                                , 6 , 1, 10
+Null, aunt           , koka               , Pending                                                                                , 3 , 1, 10
+Null, girl           , kotiro             , Pending                                                                                , 8 , 1, 10
+Null, queen          , kuini              , Pending                                                                                , 10, 1, 10
+Null, head           , mahunga            , Pending                                                                                , 1 , 1, 10
+Null, mother         , mama               , Pending                                                                                , 8 , 1, 10
+Null, honour         , mana               , Pending                                                                                , 4 , 1, 10
+Null, heart          , manawa             , Pending                                                                                , 10, 1, 10
+Null, guest          , manuhiri           , Pending                                                                                , 6 , 1, 10
+Null, grandchild     , mokopuna           , Pending                                                                                , 2 , 1, 10
+Null, rascal         , nanakia            , Pending                                                                                , 6 , 1, 10
+Null, tooth          , niho               , Pending                                                                                , 9 , 1, 10
+Null, orphan         , pani               , Pending                                                                                , 10, 1, 10
+Null, baby           , pepi               , Pending                                                                                , 6 , 1, 10
+Null, police officer , pirihimana         , Pending                                                                                , 5 , 1, 10
+Null, lungs          , pukapuka           , Pending                                                                                , 4 , 1, 10
+Null, young man      , taitama            , Pending                                                                                , 5 , 1, 10
+Null, doctor         , takuta             , Pending                                                                                , 5 , 1, 10
+Null, daughter       , tamahine           , Pending                                                                                , 8 , 1, 10
+Null, child          , tamaiti            , Pending                                                                                , 1 , 1, 10
+Null, boy            , tamatane           , Pending                                                                                , 5 , 1, 10
+Null, man            , tane               , Pending                                                                                , 7 , 1, 10
+Null, 10             , tangata            , Pending                                                                                , 6 , 1, 10
+Null, ear            , taringa            , Pending                                                                                , 7 , 1, 10
+Null, foot           , waewae             , Pending                                                                                , 2 , 1, 10
+Null, mouth          , waha               , Pending                                                                                , 4 , 1, 10
+Null, coast          , akau               , Pending                                                                                , 9 , 1, 11
+Null, branch         , manga              , Pending                                                                                , 10, 1, 12
+Null, grass          , patiti             , Pending                                                                                , 9 , 1, 12
+Null, flower         , putiputi           , Pending                                                                                , 8 , 1, 12
+Null, leaf           , rau                , Pending                                                                                , 5 , 1, 12
+Null, cabbage tree   , ti                 , Pending                                                                                , 4 , 1, 12
+Null, student        , akonga             , Pending                                                                                , 6 , 1, 13
+Null, 15             , hangarau           , Pending                                                                                , 4 , 1, 13
+Null, teacher        , kaiako             , Pending                                                                                , 6 , 1, 13
+Null, college        , kareti             , Pending                                                                                , 3 , 1, 13
+Null, 13             , kura               , Pending                                                                                , 8 , 1, 13
+Null, education      , matauranga         , Pending                                                                                , 8 , 1, 13
+Null, knowledge      , mohiotanga         , Pending                                                                                , 1 , 1, 13
+Null, science        , putaiao            , Pending                                                                                , 10, 1, 13
+Null, study          , tari               , Pending                                                                                , 3 , 1, 13
+Null, student        , tauira             , Pending                                                                                , 3 , 1, 13
+Null, sport          , hakinakina         , Pending                                                                                , 5 , 1, 14
+Null, player         , kaitakaro          , Pending                                                                                , 6 , 1, 14
+Null, electricity    , hiko               , Pending                                                                                , 9 , 1, 15
+Null, radio          , irirangi           , Pending                                                                                , 2 , 1, 15
+Null, machine        , mihini             , Pending                                                                                , 2 , 1, 15
+Null, bus            , pahi               , Pending                                                                                , 7 , 1, 15
+Null, boat           , poti               , Pending                                                                                , 2 , 1, 15
+Null, television     , pouaka whakaata    , Pending                                                                                , 10, 1, 15
+Null, airplane       , rererangi          , Pending                                                                                , 6 , 1, 15
+Null, medicine       , rongoa             , Pending                                                                                , 7 , 1, 15
+Null, computer       , rorohiko           , Pending                                                                                , 3 , 1, 15
+Null, truck          , taraka             , Pending                                                                                , 1 , 1, 15
+Null, telephone      , waea               , Pending                                                                                , 1 , 1, 15
+Null, car            , waka               , Pending                                                                                , 1 , 1, 15
+Null, wheel          , wira               , Pending                                                                                , 4 , 1, 15
+Null, afternoon      , ahiahi             , Pending                                                                                , 3 , 1, 16
+Null, soon           , akuanei            , Pending                                                                                , 6 , 1, 16
+Null, tomorrow       , apopo              , Pending                                                                                , 7 , 1, 16
+Null, hour           , haora              , Pending                                                                                , 9 , 1, 16
+Null, birthday       , huritau            , Pending                                                                                , 4 , 1, 16
+Null, clock          , karaka             , Pending                                                                                , 1 , 1, 16
+Null, month          , marama             , Pending                                                                                , 5 , 1, 16
+Null, minute         , meneti             , Pending                                                                                , 3 , 1, 16
+Null, night          , po                 , Pending                                                                                , 5 , 1, 16
+Null, day            , ra                 , Pending                                                                                , 8 , 1, 16
+Null, sun            , ra                 , Pending                                                                                , 2 , 1, 16
+Null, length of 16   , roanga             , Pending                                                                                , 3 , 1, 16
+Null, week           , wiki               , Pending                                                                                , 7 , 1, 16

@@ -19,18 +19,13 @@ function App() {
   //TODO #2
   useEffect(() => {
     fetch('http://localhost:5000/api/retreive-users').then(res => res.json()).then(data => {
-
-      setCurrentItemList(data.map((item,index)=>{
-        return <li key={index}>{item}</li>
-       }))
       setCurrentUser(data[0][1]);
-      console.log(data)
     });
   }, []);
 
   useEffect(() => {
     fetch('http://localhost:5000/api/retreive-categories').then(res => res.json()).then(data => {
-      setCurrentItemList()
+      setCurrentItemList((data))
       
     });
   }, []);
@@ -50,10 +45,11 @@ function App() {
       </header>
       <div className='page-content'>
 
-        {  currentTab === 'dict' ?
-          DictTab('test') 
+        {  itemList === 0 ?
+          <p>Loading</p>
           :
-          <p >LKogin</p>
+          DictTab(itemList) 
+
         }
         <div>
 

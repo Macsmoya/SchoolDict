@@ -1,21 +1,14 @@
 import { Tab, Tabs } from "@blueprintjs/core";
 
 function DictTab(props){
-  console.log(props)
-  const stations = [
-    {call:'station one',frequency:'000'},
-    {call:'station two',frequency:'001'}
-  ]
   return (          
     <Tabs
     id='category-tabs'
-    vertical= {true} 
+    vertical= {true}
+    large = {true} 
     >
-        { myTabs([1, "Test"]) }
-        { myTabs([2, "Test"]) }
-        { myTabs([3, "Next word"]) }
-        {stations.map(station => (
-          myTabs([station.call, station.call]) 
+        {props.map(cat => (
+          myTabs([cat[0], cat[1]]) 
         ))}
 
         <Tabs.Expander />
@@ -30,7 +23,7 @@ function myTabs(props){
 function makePanel(props){
   return (<div>
             <h1>{props[1]}</h1>
-            <h2>{props[0]}</h2>
+            <h2>{words[0]}</h2>
           </div>
         )
 }

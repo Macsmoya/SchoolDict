@@ -16,7 +16,7 @@
   }
 }
 .page-content {
-  padding-top: 50px;
+  padding-top: 51px;
 }
 .App-link {
   color: #61dafb;
@@ -29,4 +29,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+*{
+  -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+  display: none;
 }

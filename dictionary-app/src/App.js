@@ -30,9 +30,8 @@ function App() {
 
   useEffect(() => {
     fetch('http://localhost:5000/api/retreive-categories').then(res => res.json()).then(data => {
-      setCurrentItemList(data.map((item,index)=>{
-        return <li key={index}>{item}</li>
-       }))
+      setCurrentItemList()
+      
     });
   }, []);
   

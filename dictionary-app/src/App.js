@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import '@blueprintjs/core/lib/css/blueprint.css';
-
+import axios from 'axios';
 import { Button, Spinner, Navbar} from "@blueprintjs/core";
 import DictTab from './components/DictTab';
+import useToken from './components/useToken';
+import Login from './components/Login';
 
 
 function Welcome(props) {
@@ -16,10 +18,8 @@ function App() {
   const [currentUser, setCurrentUser] = useState(0);
   const [categoryList, setCategoryList] = useState(0);
   const [wordList, setWordList] = useState(0);
-
-  //const [currentTab, setCurrentTab] = useState(0);
-  //setCurrentTab('dict')
-  //const currentTab = 'dict'
+  const { token, removeToken, setToken } = useToken();
+  
 
   //TODO #2
   useEffect(() => {
@@ -50,6 +50,11 @@ function App() {
               <Navbar.Divider />
               <Button className="bp4-minimal" icon="home" text="Admin"/>
               <Button className="bp4-minimal" icon="document" text="Files" />
+              {!token && token!=="" &&token!== undefined?  
+              <Login setToken={setToken} />
+              :
+              <p>Logged in</p>
+              }
           </Navbar.Group>
         </Navbar>
       </header>
@@ -84,7 +89,8 @@ function App() {
         }
         <ul>
           { currentUser }
-
+          
+         
 
         </ul>
       </div>

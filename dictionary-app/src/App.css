@@ -1,9 +1,7 @@
 @import "~normalize.css";
 @import "~@blueprintjs/core/lib/css/blueprint.css";
 @import "~@blueprintjs/icons/lib/css/blueprint-icons.css";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
 .App {
   text-align: center;
 }
@@ -42,10 +40,12 @@
   display: none;
 }
 
-.flex-container {
-  display: flex;
+.container {
+  display: flex; /* or inline-flex */
+  flex-wrap:wrap;
+  justify-content: center;
 }
-
-.flex-child {
-  flex: 1;
-}  
+.item {
+  flex-basis: auto; /* default auto */;
+  padding:5px;
+}

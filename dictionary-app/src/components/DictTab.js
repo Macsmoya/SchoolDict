@@ -33,13 +33,13 @@ function DictTab(props){
 
 
 function myTabs(props){
-    return <Tab id={props[0]} title={props[1]} panel={makePanel(props)} />
+    return <Tab id={props[0]} key={props[0]} title={props[1]} panel={makePanel(props)} />
   }
 
 function makePanel(props){
   return (<div key={props[0]}>
             <h1>{props[1]}</h1>
-            <div className="flex flex-wrap mb-4 p-10">
+            <div className="container">
               {props[2].map(word => (
                   wordPanel(word)
               ))}
@@ -50,8 +50,8 @@ function makePanel(props){
 
 function wordPanel(props){
   return(
-    <div className="p-1">
-      <Card interactive={true} elevation={Elevation.TWO}>
+    <div key={props[0]} className="item">
+      <Card interactive={true} className="" elevation={Elevation.TWO}>
         <h5>{props[1]}</h5>
         <p>{props[2]}</p>
       </Card>

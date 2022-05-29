@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import '@blueprintjs/core/lib/css/blueprint.css';
+
 import { Button, Spinner, Navbar} from "@blueprintjs/core";
 import DictTab from './components/DictTab';
+
 
 function Welcome(props) {
   return <h1>Hello, {props}</h1>;
@@ -11,10 +14,12 @@ function Welcome(props) {
 
 function App() {
   const [currentUser, setCurrentUser] = useState(0);
-  const [itemList, setCurrentItemList] = useState(0);
+  const [categoryList, setCategoryList] = useState(0);
+  const [wordList, setWordList] = useState(0);
+
   //const [currentTab, setCurrentTab] = useState(0);
   //setCurrentTab('dict')
-  const currentTab = 'dict'
+  //const currentTab = 'dict'
 
   //TODO #2
   useEffect(() => {
@@ -25,11 +30,16 @@ function App() {
 
   useEffect(() => {
     fetch('http://localhost:5000/api/retreive-categories').then(res => res.json()).then(data => {
-      setCurrentItemList((data))
+      setCategoryList((data))
       
     });
   }, []);
-  
+  useEffect(() => {
+    fetch('http://localhost:5000/api/retreive-words').then(res => res.json()).then(data => {
+      setWordList((data))
+      
+    });
+  }, []);
 
   return (
     <div className="App"> 
@@ -45,11 +55,10 @@ function App() {
       </header>
       <div className='page-content'>
 
-        {  itemList === 0 ?
+        {  categoryList === 0 || wordList === 0 ?
           <p>Loading</p>
           :
-          DictTab(itemList) 
-
+          DictTab([categoryList, wordList]) 
         }
         <div>
 
@@ -74,7 +83,9 @@ function App() {
         Welcome(currentUser)
         }
         <ul>
-          { itemList }
+          { currentUser }
+
+
         </ul>
       </div>
 

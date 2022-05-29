@@ -1,11 +1,13 @@
 from functools import total_ordering
-import time
 from typing import final
 from flask import Flask,render_template,request,redirect,url_for,flash, jsonify
 from flask_cors import CORS
 import json 
-import mariadb
 import sqlite3 as sql
+import json
+from datetime import datetime, timedelta, timezone
+from flask_jwt_extended import create_access_token,get_jwt,get_jwt_identity, \
+                               unset_jwt_cookies, jwt_required, JWTManager
 
 #SET "PATH=C:\Program Files\MariaDB 10.6\bin;%PATH%"        
 
@@ -13,6 +15,28 @@ import sqlite3 as sql
 
 app = Flask(__name__)
 CORS(app)
+
+app.config["JWT_SECRET_KEY"] = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY1MzgwNjcxMSwianRpIjoiNzJhNzIyNzAtMWY0Yy00NzU0LTgyOWYtYTc5MjBiOTE3Y2QwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3QiLCJuYmYiOjE2NTM4MDY3MTEsImV4cCI6MTY1MzgwNzYxMX0.HuYV9iwKsUU7rTs3nIFEB6fPiI0-MzA5FIgb0JkPJbc"
+app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=1)
+
+jwt = JWTManager(app)
+
+@app.after_request
+def refresh_expiring_jwts(response):
+    try:
+        exp_timestamp = get_jwt()["exp"]
+        now = datetime.now(timezone.utc)
+        target_timestamp = datetime.timestamp(now + timedelta(minutes=30))
+        if target_timestamp > exp_timestamp:
+            access_token = create_access_token(identity=get_jwt_identity())
+            data = response.get_json()
+            if type(data) is dict:
+                data["access_token"] = access_token 
+                response.data = json.dumps(data)
+        return response
+    except (RuntimeError, KeyError):
+        # Case where there is not a valid JWT. Just return the original respone
+        return response
 
 @app.route("/")
 @app.route("/index")
@@ -22,6 +46,34 @@ def index():
     cur.execute("SELECT * FROM users")
     data = cur.fetchall()
     return  " " + str(data)
+
+
+@app.route('/token', methods=["POST"])
+def create_token():
+    email = request.json.get("email", None)
+    password = request.json.get("password", None)
+    if email != "test" or password != "test":
+        return {"msg": "Wrong email or password"}, 401
+
+    access_token = create_access_token(identity=email)
+    response = {"access_token":access_token}
+    return response
+
+@app.route("/logout", methods=["POST"])
+def logout():
+    response = jsonify({"msg": "logout successful"})
+    unset_jwt_cookies(response)
+    return response
+
+@app.route('/profile')
+@jwt_required() #new line
+def my_profile():
+    response_body = {
+        "name": "Nagato",
+        "about" :"Hello! I'm a full stack developer that loves python and javascript"
+    }
+
+    return response_body
 
 #CRUD create for each table ---------------------------------------|
 @app.route('/api/create-user/<string:uname>/<string:email>/<string:password>/<int:teacher>')

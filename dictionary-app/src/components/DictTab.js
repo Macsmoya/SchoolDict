@@ -206,10 +206,12 @@ function wordPanel(props, isAdmin){
   }
   return(
     <div key={props[0]} className="item">
-      <Card interactive={true} className="" elevation={Elevation.TWO}>
+      <Card interactive={true} style={{width:"300px"}} className="" elevation={Elevation.TWO}>
         <h3>{props[1]}</h3>
         <p><i>{props[2]}</i></p>
+        <p>{props[3]} <b>Level:</b> {props[4]}</p> 
         <img className="image" src={wordImage.src}/>
+        <p>Added {props[5]} by Admin #{props[6]}</p>
         <br></br>
         { isAdmin === 1 ?
           <Popover

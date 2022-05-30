@@ -9,7 +9,6 @@ from datetime import datetime, timedelta, timezone
 from flask_jwt_extended import create_access_token,get_jwt,get_jwt_identity, \
                                unset_jwt_cookies, jwt_required, JWTManager
 
-#SET "PATH=C:\Program Files\MariaDB 10.6\bin;%PATH%"        
 
 
 
@@ -21,6 +20,12 @@ app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=1)
 
 jwt = JWTManager(app)
 
+
+
+
+#Authentication endpoints
+
+#Refresh jwts when they are about to expire
 @app.after_request
 def refresh_expiring_jwts(response):
     try:
@@ -35,20 +40,10 @@ def refresh_expiring_jwts(response):
                 response.data = json.dumps(data)
         return response
     except (RuntimeError, KeyError):
-        # Case where there is not a valid JWT. Just return the original respone
         return response
 
-@app.route("/")
-@app.route("/index")
-def index():
-    con = sql.connect("dict.db")
-    cur = con.cursor()
-    cur.execute("SELECT * FROM users")
-    data = cur.fetchall()
-    return  " " + str(data)
 
-#Authentication endpoints
-
+#Generate jwt for user
 @app.route('/token', methods=["POST"])
 def create_token():
     try:
@@ -75,21 +70,14 @@ def create_token():
     finally:
         con.close()
 
+
+#Log user out
 @app.route("/logout", methods=["POST"])
 def logout():
     response = jsonify({"msg": "logout successful"})
     unset_jwt_cookies(response)
     return response
 
-@app.route('/profile')
-@jwt_required() #new line
-def my_profile():
-    response_body = {
-        "name": "Nagato",
-        "about" :"Hello! I'm a full stack developer that loves python and javascript"
-    }
-
-    return response_body
 
 #CRUD create for each table ---------------------------------------|
 @app.route('/api/create-user/<string:uname>/<string:email>/<string:password>/<int:teacher>')
@@ -110,6 +98,7 @@ def create_user(uname: str, email: str, password: str, teacher: int):
         conn.close()
     return "200"
 
+
 @app.route('/api/create-word/<string:eng>/<string:tereo>/<string:desc>/<int:level>/<int:author>/<int:cat>')
 def create_word(eng: str, tereo: str, desc: str, level: int, author: int, cat: int):
     try:
@@ -129,6 +118,7 @@ def create_word(eng: str, tereo: str, desc: str, level: int, author: int, cat: i
     finally:
         conn.close()
     return "200"
+
 
 @app.route('/api/create-category/<string:name>/<string:desc>/<int:author>')
 def create_category(name: str, desc: str, author: int):
@@ -164,6 +154,7 @@ def retreive_users():
         con.close()
     return jsonify(rows)
 
+
 @app.route('/api/retreive-words')
 def retreive_words():
     try:
@@ -178,6 +169,7 @@ def retreive_words():
         con.close()
     return jsonify(rows)
 
+
 @app.route('/api/retreive-categories')
 def get_cats():
     try:
@@ -191,6 +183,7 @@ def get_cats():
     finally:
         con.close()
     return jsonify(rows)
+
 
 @app.route('/api/get-user/<int:uid>')
 def get_user_by_id(uid: int):
@@ -219,6 +212,7 @@ def get_word_by_id(id: int):
         con.close()
     return jsonify(cur.fetchall()[0])
 
+
 @app.route('/api/get-cat/<int:id>')
 def get_cat_by_id(id: int):
     try:
@@ -232,7 +226,7 @@ def get_cat_by_id(id: int):
         con.close()
     return jsonify(cur.fetchall()[0])
 
-#CRUD update for each
+#CRUD update for each TODO, not yet neccasary
 
 
 #CRUD delete for each
@@ -263,6 +257,7 @@ def del_word_by_id(id: int):
         con.close()
     return "200"
 
+
 @app.route('/api/delete-cat/<int:id>')
 def del_cat_by_id(id: int):
     try:
@@ -276,5 +271,4 @@ def del_cat_by_id(id: int):
         con.close()
     return "200"
 
-#TODO Fix ports #1
 

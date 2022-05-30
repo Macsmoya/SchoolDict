@@ -241,20 +241,21 @@ def del_user_by_id(id: int):
     try:
         con = sql.connect("dict.db")
         cur = con.cursor()
-        cur.execute("DELETE * FROM users where uid = ?", (id, ))
+        cur.execute("DELETE FROM users where uid = ?", (id, ))
         con.commit()
+        return "200"
     except:
         return {}
     finally:
         con.close()
-    return "200"
+    
 
 @app.route('/api/delete-word/<int:id>')
 def del_word_by_id(id: int):
     try:
         con = sql.connect("dict.db")
         cur = con.cursor()
-        cur.execute("DELETE * FROM words where wordid = ?", (id, ))
+        cur.execute("DELETE FROM words where wordid=?", (id, ))
         con.commit()
     except:
         return {}
@@ -267,12 +268,13 @@ def del_cat_by_id(id: int):
     try:
         con = sql.connect("dict.db")
         cur = con.cursor()
-        cur.execute("DELETE * FROM categories where catid = ?", (id, ))
+        cur.execute("DELETE FROM categories WHERE catid=?", (id, ))
         con.commit()
     except:
-        return {}
+        return "401"
     finally:
         con.close()
     return "200"
+
 #TODO Fix ports #1
 

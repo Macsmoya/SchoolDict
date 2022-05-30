@@ -1,11 +1,12 @@
-import { Tab, Tabs, Card, Elevation, Button, Intent, Classes, H5, PopoverInteractionKind, Position, Popover } from "@blueprintjs/core";
+import { Tab, Tabs, Card, Elevation, Intent, Button, PopoverInteractionKind, Popover, Position } from "@blueprintjs/core";
 import React from 'react';
+import axios from "axios";
+
 
 function DictTab(props){
   const catList = props[0]
   const wordList = props[1]
   const isAdmin = props[2]
-  console.log(isAdmin);
   const groupedByCat = [];
   for (const cat of catList){
     const catWords = [];
@@ -24,64 +25,46 @@ function DictTab(props){
     vertical= {true}
     large = {true} 
     >
-        {catList.map(cat => (
-          myTabs([cat[0], cat[1], groupedByCat[cat[0] - 1]]) 
+        {console.log(catList)}
+        {catList.map((cat, index) => (
+          myTabs([cat[0], cat[1], groupedByCat[index], isAdmin]) 
 
         ))}
-        {  isAdmin === 1  ?
-          <Tab id='admin' key='99' title='Manage Categories' panel={adminPanel(catList)} />
-          :
-          <></>
-        }
+
         <Tabs.Expander />
     </Tabs>)
 }
-function adminPanel(props){
-  return(
-    <div  style={{textAlign: "left"}}>
-      <h1>Manage Categories</h1>
-      <div className="bp4-card">
-        <h3>Delete category</h3>
-        <div className="bp4-html-select">
-          <select className=".bp4-fill">
-            <option selected>Choose a Category</option>
-            {props.map(cat => (
-            <option value={cat[0]}>{cat[1]}</option>
 
-          ))}
-          </select>
-          <span class="bp4-icon bp4-icon-double-caret-vertical"></span>
-          </div> 
-          <br></br>
-          <br></br>
-          <Popover
-                interactionKind={PopoverInteractionKind.CLICK}
-                popoverClassName="bp4-popover-content-sizing"
-                position={Position.RIGHT}
-            >
-              <Button>Delete</Button>
-              <div>
-                  <h4>Are you sure you want to delete this category?</h4>
-                  <Button className="bp4-minimal" intent={Intent.DANGER} icon="delete" text="Delete" />
-
-              </div>
-          </Popover>
-        
-      </div>
-    </div>   
-  )
-}
-function deleteCategory() {
-  
-}
 
 function myTabs(props){
     return <Tab id={props[0]} key={props[0]} title={props[1]} panel={makePanel(props)} />
   }
 
 function makePanel(props){
+  const isAdmin = props[3]
   return (<div key={props[0]}>
             <h1>{props[1]}</h1>
+            { isAdmin === 1 ?
+            <div>
+              <Popover
+                  interactionKind={PopoverInteractionKind.CLICK}
+                  popoverClassName="bp4-popover-content-sizing"
+                  position={Position.RIGHT}
+              >
+                <Button>Delete Category</Button>
+                <div>
+                    <h4>Are you sure you want to delete this category?</h4>
+                    <Button onClick={() => deleteCat(props[0])} className="bp4-minimal" intent={Intent.DANGER} icon="delete" text="Delete" />
+
+                </div>
+              </Popover>
+              <br></br>
+              <br></br>
+            </div>
+            :
+            <></>
+            }
+            
             <div className="container">
               {props[2].map(word => (
                   wordPanel(word)
@@ -90,6 +73,23 @@ function makePanel(props){
           </div>
         )
 }
+
+function deleteCat(cat){
+  axios({
+    method: "POST",
+    url:"/api/delete-category/" + cat
+  })
+  .then((response) => {
+    console.log(response);  
+  }).catch((error) => {
+    if (error.response) {
+      console.log(error.response)
+      console.log(error.response.status)
+      console.log(error.response.headers)
+      }
+  })
+}
+
 
 function wordPanel(props){
   return(

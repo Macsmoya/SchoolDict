@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import '@blueprintjs/core/lib/css/blueprint.css';
-import { Button, Spinner, Navbar, Classes, Dialog} from "@blueprintjs/core";
+import { Button, Navbar, Classes, Dialog} from "@blueprintjs/core";
 import DictTab from './components/DictTab';
 import useToken from './components/useToken';
 import Login from './components/Login';

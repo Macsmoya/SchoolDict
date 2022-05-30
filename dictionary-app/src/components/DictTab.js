@@ -54,7 +54,7 @@ function makePanel(props){
                 <Button>Delete Category</Button>
                 <div>
                     <h4>Are you sure you want to delete this category?</h4>
-                    <Button onClick={() => deleteCat(props[0])} className="bp4-minimal" intent={Intent.DANGER} icon="delete" text="Delete" />
+                    <Button onClick={() => {deleteCat(props[0]); window.location.reload()}} className="bp4-minimal" intent={Intent.DANGER} icon="delete" text="Delete" />
 
                 </div>
               </Popover>
@@ -76,8 +76,8 @@ function makePanel(props){
 
 function deleteCat(cat){
   axios({
-    method: "POST",
-    url:"/api/delete-category/" + cat
+    method: "GET",
+    url:"/api/delete-cat/" + cat
   })
   .then((response) => {
     console.log(response);  

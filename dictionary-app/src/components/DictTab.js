@@ -1,4 +1,4 @@
-import { Tab, Tabs, Card, Elevation, Intent, Button, PopoverInteractionKind, Popover, Position } from "@blueprintjs/core";
+import { Tab, Tabs, Card, EditableText, ButtonGroup, Elevation, Intent, Button, PopoverInteractionKind, Popover, Position } from "@blueprintjs/core";
 import React from 'react';
 import axios from "axios";
 import catCreationTab from "./catCreateTab";
@@ -35,6 +35,8 @@ import noimage from './images/noimage.png';
 import potato from './images/potato.jpg';
 import poutama from './images/poutama.jpg';
 import sinegraph from './images/sinegraph.jpg';
+import { SLIDER_PROGRESS } from "@blueprintjs/core/lib/esm/common/classes";
+import Login from "./Login";
 
 //Put images in list
 const images = [
@@ -116,18 +118,35 @@ function makePanel(props){
             <h1>{props[1]}</h1>
             { isAdmin === 1 ?
             <div>
+              <ButtonGroup minimal={true}>
+                <Popover
+                  interactionKind={PopoverInteractionKind.CLICK}
+                  popoverClassName="bp4-popover-content-sizing"
+                  position={Position.RIGHT}
+              >
+                <Button icon="delete">Delete Category</Button>
+                <div>
+                    <h4>Are you sure you want to delete this category?</h4>
+                    <Button  onClick={() => {deleteCat(props[0]); window.location.reload()}} className="bp4-minimal" intent={Intent.DANGER} icon="delete" text="Delete" />
+
+                </div>
+              </Popover>
               <Popover
                   interactionKind={PopoverInteractionKind.CLICK}
                   popoverClassName="bp4-popover-content-sizing"
                   position={Position.RIGHT}
               >
-                <Button>Delete Category</Button>
+                <Button icon="add">Add word</Button>
                 <div>
-                    <h4>Are you sure you want to delete this category?</h4>
-                    <Button onClick={() => {deleteCat(props[0]); window.location.reload()}} className="bp4-minimal" intent={Intent.DANGER} icon="delete" text="Delete" />
+                    <h4>Edit the values below.</h4>
 
+                    <br></br>
+                    <br></br>
+                    <Button  onClick={() => console.log('addword')}>Add</Button>
                 </div>
               </Popover>
+          </ButtonGroup>
+              
               <br></br>
               <br></br>
             </div>
@@ -137,7 +156,7 @@ function makePanel(props){
             
             <div className="container">
               {props[2].map(word => (
-                  wordPanel(word)
+                  wordPanel(word, isAdmin)
               ))}
             </div> 
           </div>
@@ -159,10 +178,26 @@ function deleteCat(cat){
       }
   })
 }
+function deleteWord(word){
+  axios({
+    method: "GET",
+    url:"/api/delete-word/" + word
+  })
+  .then((response) => {
+    console.log(202);  
+  }).catch((error) => {
+    if (error.response) {
+      console.log(error.response)
+      console.log(error.response.status)
+      console.log(error.response.headers)
+      }
+  })
+}
 
 
 
-function wordPanel(props){
+
+function wordPanel(props, isAdmin){
   let wordImage = images[28];
   for (const image of images){
     if (image.name == props[1]){
@@ -175,6 +210,24 @@ function wordPanel(props){
         <h3>{props[1]}</h3>
         <p><i>{props[2]}</i></p>
         <img className="image" src={wordImage.src}/>
+        <br></br>
+        { isAdmin === 1 ?
+          <Popover
+          interactionKind={PopoverInteractionKind.CLICK}
+          popoverClassName="bp4-popover-content-sizing"
+          position={Position.RIGHT}
+      >
+        <Button icon="delete">Delete Word</Button>
+        <div>
+            <h4>Are you sure you want to delete this word?</h4>
+            <Button  onClick={() => {deleteWord(props[0]); window.location.reload()}} className="bp4-minimal" intent={Intent.DANGER} icon="delete" text="Delete" />
+
+        </div>
+      </Popover>
+      :
+      <></>
+
+      }
       </Card>
       </div>)
 }

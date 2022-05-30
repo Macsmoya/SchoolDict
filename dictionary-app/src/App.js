@@ -65,14 +65,8 @@ function App() {
         }
 
         <ul>
-            <Dialog isOpen={isOpen} canOutsideClickClose={true} hasBackdrop={true} usePortal={true} onClose={() => setIsOpen(false) }>
+            <Dialog title="Login" isOpen={isOpen} canOutsideClickClose={true} hasBackdrop={true} usePortal={true} onClose={() => setIsOpen(false) }>
                 <div className={Classes.DIALOG_BODY}>
-            <p>
-                <strong>
-                    Data integration is the seminal problem of the digital age. For over ten years, we’ve helped the
-                    world’s premier organizations rise to the challenge.
-                </strong>
-            </p>
             <Login setToken={setToken}/>
 
         </div>

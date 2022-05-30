@@ -1,7 +1,7 @@
-import React from 'react';
-
+import { InputGroup, Label, Button } from "@blueprintjs/core";
 import { useState } from 'react';
 import axios from "axios";
+import React from 'react';
 
 function Login(props) {
 
@@ -20,7 +20,7 @@ function Login(props) {
          }
       })
       .then((response) => {
-        props.setToken(response.data.access_token)
+        props.setToken(response.data.access_token, response.data.user_id)
       }).catch((error) => {
         if (error.response) {
           console.log(error.response)
@@ -33,7 +33,7 @@ function Login(props) {
         email: "",
         password: ""}))
 
-      event.preventDefault()
+      //event.preventDefault()
     }
 
     function handleChange(event) { 
@@ -44,21 +44,33 @@ function Login(props) {
 
     return (
       <div>
-          <form className="login">
-            <input onChange={handleChange} 
-                  type="email"
-                  text={loginForm.email} 
-                  name="email" 
-                  placeholder="Email" 
-                  value={loginForm.email} />
-            <input onChange={handleChange} 
+        <p>Email:</p>
+        <form className="login">  
+            <Label>
+            <InputGroup onChange={handleChange} 
+                label="test"
+                type="email"
+                text={loginForm.email} 
+                name="email" 
+                placeholder="Email" 
+                value={loginForm.email} />
+            </Label>
+            
+            <br></br>
+            <Label>
+                Password:
+                <InputGroup onChange={handleChange} 
                   type="password"
                   text={loginForm.password} 
                   name="password" 
                   placeholder="Password" 
-                  value={loginForm.password} />
+                  value={loginForm.password} /> 
+            </Label>
+            
+            <br></br>
+            <Button className="bp4-icon-standard" icon="tick" text="Submit" onClick={() =>{logMeIn(); window.location.reload();}}/>
 
-          <button onClick={logMeIn}>Submit</button>
+
         </form>
       </div>
     );

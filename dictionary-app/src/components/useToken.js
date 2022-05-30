@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import React from 'react';
 
 function useToken() {
 
@@ -8,21 +7,31 @@ function useToken() {
     return userToken && userToken
   }
 
-  const [token, setToken] = useState(getToken());
+  function getUser(){
+    const userEmail = localStorage.getItem('email');
+    return userEmail
+  }
 
-  function saveToken(userToken) {
+  const [token, setToken] = useState(getToken());
+  const [userId] = useState(getUser());
+
+  function saveToken(userToken, userEmail) {
     localStorage.setItem('token', userToken);
+    localStorage.setItem('email', userEmail);
+
     setToken(userToken);
   };
 
   function removeToken() {
     localStorage.removeItem("token");
+    localStorage.removeItem('email');
     setToken(null);
   }
 
   return {
     setToken: saveToken,
     token,
+    userId,
     removeToken
   }
 

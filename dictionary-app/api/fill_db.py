@@ -31,5 +31,11 @@ cur.execute("INSERT INTO users (uid, uname, email, password, teacher) VALUES (NU
             "password12",
             1
             ))
+cur.execute("INSERT INTO users (uid, uname, email, password, teacher) VALUES (NULL, ?, ?, ?, ?)", (
+            "Mark",   
+            "mark@moir",
+            "pw",
+            1
+            ))
 con.commit()
 con.close()

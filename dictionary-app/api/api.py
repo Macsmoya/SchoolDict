@@ -47,17 +47,33 @@ def index():
     data = cur.fetchall()
     return  " " + str(data)
 
+#Authentication endpoints
 
 @app.route('/token', methods=["POST"])
 def create_token():
-    email = request.json.get("email", None)
-    password = request.json.get("password", None)
-    if email != "test" or password != "test":
-        return {"msg": "Wrong email or password"}, 401
+    try:
+        email = request.json.get("email", None)
+        password = request.json.get("password", None)
 
-    access_token = create_access_token(identity=email)
-    response = {"access_token":access_token}
-    return response
+        con = sql.connect("dict.db")
+        cur = con.cursor()
+        cur.execute("SELECT * FROM users where email = ?", (email, ))
+        user = cur.fetchall()[0]
+        con.commit()
+
+        print(user[0])
+        print(email + " " + password)
+        
+        if email != user[2] or password != user[3]:
+            return {"msg": "Wrong email or password"}, 401
+
+        access_token = create_access_token(identity=email)
+        response = {"access_token":access_token, "user_id":user[0]}
+        return response
+    except:
+        return {"msg": "Connection failed"}, 401
+    finally:
+        con.close()
 
 @app.route("/logout", methods=["POST"])
 def logout():
@@ -183,11 +199,12 @@ def get_user_by_id(uid: int):
         cur = con.cursor()
         cur.execute("SELECT * FROM users where uid = ?", (uid, ))
         con.commit()
+        return jsonify(cur.fetchall()[0])
     except:
         return {}
     finally:
         con.close()
-    return jsonify(cur.fetchall()[0])
+    
 
 @app.route('/api/get-word/<int:id>')
 def get_word_by_id(id: int):

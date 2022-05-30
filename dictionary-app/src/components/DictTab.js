@@ -4,6 +4,8 @@ import React from 'react';
 function DictTab(props){
   const catList = props[0]
   const wordList = props[1]
+  const isAdmin = props[2]
+  console.log(isAdmin);
   const groupedByCat = [];
   for (const cat of catList){
     const catWords = [];

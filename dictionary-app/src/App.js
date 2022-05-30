@@ -59,7 +59,7 @@ function App() {
         {  categoryList === 0 || wordList === 0 ?
         <img src={logo} className="App-logo" alt="logo" />
         :
-          DictTab([categoryList, wordList, currentUser]) 
+          DictTab([categoryList, wordList, currentUser[4]]) 
         }
 
         <ul>

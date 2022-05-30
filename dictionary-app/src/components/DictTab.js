@@ -28,7 +28,11 @@ function DictTab(props){
           myTabs([cat[0], cat[1], groupedByCat[cat[0] - 1]]) 
 
         ))}
-
+        {  isAdmin === 1  ?
+          <Tab id='admin' key='99' title='Manage Categories' panel={<h1>HI</h1>} />
+          :
+          <></>
+        }
         <Tabs.Expander />
     </Tabs>)
 }

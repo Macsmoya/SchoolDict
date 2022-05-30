@@ -11,7 +11,7 @@ import bacon from './images/bacon.jpg';
 import banana from './images/banana.jpg';
 import bear from './images/bear.jpg';
 import bee from './images/bee.jpg';
-import bird from './images/boat.jpg';
+import hat from './images/boat.jpg';
 import boat from './images/boat.jpg';
 import boy from './images/boy.jpg';
 import butterfly from './images/butterfly.jpg';
@@ -37,7 +37,7 @@ import potato from './images/potato.jpg';
 import poutama from './images/poutama.jpg';
 import sinegraph from './images/sinegraph.jpg';
 
-
+//Put images in list
 const images = [
   {name:'aireplane', src:airplane},
   {name:'apple', src:apple},
@@ -46,7 +46,7 @@ const images = [
   {name:'banana', src:banana},
   {name:'bear', src:bear},
   {name:'bee', src:bee},
-  {name:'bird', src:bird},
+  {name:'hat', src:icecream},
   {name:'boat', src:boat},
   {name:'boy', src:boy},
   {name:'butterfly', src:butterfly},
@@ -57,13 +57,20 @@ const images = [
   {name:'chicken', src:chicken},
   {name:'clock', src:clock},
   {name:'cloud', src:cloud},
-  {name:'bird', src:bird},
-  {name:'bird', src:bird},
-  {name:'bird', src:bird},
-  {name:'bird', src:bird},
-  {name:'bird', src:bird},
-  {name:'bird', src:bird},
-  {name:'bird', src:bird},
+  {name:'computer', src:computer},
+  {name:'cow', src:cow},
+  {name:'cup', src:cup},
+  {name:'doctor', src:doctor},
+  {name:'dog', src:dog},
+  {name:'egg', src:egg},
+  {name:'electricity', src:electricity},
+  {name:'hat', src:hat},
+  {name:'icecream', src:icecream},
+  {name:'milk', src:milk},
+  {name:'noimage', src:noimage},
+  {name:'potato', src:potato},
+  {name:'poutama', src:poutama},
+  {name:'sinegraph', src:sinegraph},
 
 ]
 function DictTab(props){

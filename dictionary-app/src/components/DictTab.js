@@ -1,12 +1,13 @@
 import { Tab, Tabs, Card, Elevation, Intent, Button, PopoverInteractionKind, Popover, Position } from "@blueprintjs/core";
 import React from 'react';
 import axios from "axios";
-
+import catCreationTab from "./catCreateTab";
 
 function DictTab(props){
   const catList = props[0]
   const wordList = props[1]
-  const isAdmin = props[2]
+  const currentUser = props[2][0]
+  const isAdmin = props[2][4]
   const groupedByCat = [];
   for (const cat of catList){
     const catWords = [];
@@ -25,11 +26,11 @@ function DictTab(props){
     vertical= {true}
     large = {true} 
     >
-        {console.log(catList)}
         {catList.map((cat, index) => (
           myTabs([cat[0], cat[1], groupedByCat[index], isAdmin]) 
 
         ))}
+
 
         <Tabs.Expander />
     </Tabs>)
@@ -80,7 +81,7 @@ function deleteCat(cat){
     url:"/api/delete-cat/" + cat
   })
   .then((response) => {
-    console.log(response);  
+    console.log(202);  
   }).catch((error) => {
     if (error.response) {
       console.log(error.response)

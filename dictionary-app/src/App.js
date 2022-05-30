@@ -7,7 +7,7 @@ import DictTab from './components/DictTab';
 import useToken from './components/useToken';
 import Login from './components/Login';
 import LogoutButton from './components/LogoutButton';
-
+import catCreationTab from './components/catCreateTab';
 function App() {
   const [currentUser, setCurrentUser] = useState(0);
   const [categoryList, setCategoryList] = useState(0);
@@ -44,13 +44,15 @@ function App() {
           <Navbar.Group>
               <Navbar.Heading> M&#257;ori Dictionary</Navbar.Heading>
               <Navbar.Divider />
-              <Button className="bp4-minimal" icon="home" text="Admin" />
-              
+              <p>  </p>
               {!token && token!=="" &&token!== undefined?  
               <Button className="bp4-minimal" icon="log-in" text="Log in" onClick={() => { setIsOpen(true) }}/>
               :
-              <LogoutButton token={removeToken}></LogoutButton>
+              <LogoutButton token={removeToken} onLogout={() => window.location.reload()}></LogoutButton>
               }
+              
+
+
           </Navbar.Group>
         </Navbar>
       </header>
@@ -59,7 +61,7 @@ function App() {
         {  categoryList === 0 || wordList === 0 ?
         <img src={logo} className="App-logo" alt="logo" />
         :
-          DictTab([categoryList, wordList, currentUser[4]]) 
+          DictTab([categoryList, wordList, currentUser]) 
         }
 
         <ul>

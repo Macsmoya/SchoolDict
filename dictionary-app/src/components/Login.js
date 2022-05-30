@@ -3,12 +3,18 @@ import { useState } from 'react';
 import axios from "axios";
 import React from 'react';
 
-function Login(props) {
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
+function Login(props) {
+    const errorMessage = <p></p>
     const [loginForm, setloginForm] = useState({
       email: "",
       password: ""
     })
+    const [error,setError]=useState();
+
 
     function logMeIn(event) {
       axios({
@@ -21,12 +27,12 @@ function Login(props) {
       })
       .then((response) => {
         props.setToken(response.data.access_token, response.data.user_id)
+        sleep(500);
+        window.location.reload()
       }).catch((error) => {
         if (error.response) {
-          console.log(error.response)
-          console.log(error.response.status)
-          console.log(error.response.headers)
-          }
+          setError(<p>Please check your email and password were correct</p>)
+        }
       })
 
       setloginForm(({
@@ -68,8 +74,10 @@ function Login(props) {
             </Label>
             
             <br></br>
-            <Button className="bp4-icon-standard" icon="tick" text="Submit" onClick={() =>{logMeIn(); window.location.reload();}}/>
-
+            <Button className="bp4-icon-standard" icon="tick" text="Submit" onClick={() =>{logMeIn()}}/>
+            <br></br>
+            <br></br>
+            {error}
 
         </form>
       </div>

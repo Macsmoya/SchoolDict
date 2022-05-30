@@ -19,9 +19,13 @@ function Header(props) {
     })}
 
     return(
-      <Button className="bp4-minimal" icon="log-out" text="Logout" onClick={logOut} />
+      <Button className="bp4-minimal" icon="log-out" text="Logout" onClick={() => {logOut(); sleep(500); props.onLogout()}} />
 
   );
+}
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 export default Header;

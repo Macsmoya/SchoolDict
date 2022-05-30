@@ -26,16 +26,16 @@ for index, row in dfcats.iterrows():
             row[3]
             ))
 cur.execute("INSERT INTO users (uid, uname, email, password, teacher) VALUES (NULL, ?, ?, ?, ?)", (
-            "Max",   
-            "max@moir.co.nz",
-            "password12",
+            "teacher",   
+            "teacher@gmail.com",
+            "password",
             1
             ))
 cur.execute("INSERT INTO users (uid, uname, email, password, teacher) VALUES (NULL, ?, ?, ?, ?)", (
-            "Mark",   
-            "mark@moir",
-            "pw",
-            1
+            "student",   
+            "student@gmail.com",
+            "password",
+            0
             ))
 con.commit()
 con.close()

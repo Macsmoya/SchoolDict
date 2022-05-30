@@ -29,14 +29,37 @@ function DictTab(props){
 
         ))}
         {  isAdmin === 1  ?
-          <Tab id='admin' key='99' title='Manage Categories' panel={<h1>HI</h1>} />
+          <Tab id='admin' key='99' title='Manage Categories' panel={adminPanel(catList)} />
           :
           <></>
         }
         <Tabs.Expander />
     </Tabs>)
 }
+function adminPanel(props){
+  return(
+    <div  style={{textAlign: "left"}}>
+      <h1>Manage Categories</h1>
+      <div className="bp4-card">
+        <h5>Delete category</h5>
+        <div className="bp4-html-select">
+          <select className=".bp4-fill">
+            <option selected>Choose an item...</option>
+            {props.map(cat => (
+            <option value={cat[0]}>{cat[1]}</option>
 
+          ))}
+          </select>
+          <span class="bp4-icon bp4-icon-double-caret-vertical"></span>
+          </div> 
+          <button onclick="alert('test')">Try it - click</button>     
+      </div>
+    </div>   
+  )
+}
+function deleteCategory() {
+  alert("hey")
+}
 
 function myTabs(props){
     return <Tab id={props[0]} key={props[0]} title={props[1]} panel={makePanel(props)} />

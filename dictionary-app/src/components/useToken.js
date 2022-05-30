@@ -16,7 +16,7 @@ function useToken() {
   const [userId] = useState(getUser());
 
   function saveToken(userToken, userEmail) {
-    localStorage.setItem('token', userToken);
+      
     localStorage.setItem('email', userEmail);
 
     setToken(userToken);

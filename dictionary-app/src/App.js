@@ -7,12 +7,12 @@ import DictTab from './components/DictTab';
 import useToken from './components/useToken';
 import Login from './components/Login';
 import LogoutButton from './components/LogoutButton';
-import catCreationTab from './components/catCreateTab';
+
 function App() {
   const [currentUser, setCurrentUser] = useState(0);
   const [categoryList, setCategoryList] = useState(0);
   const [wordList, setWordList] = useState(0);
-  const { token, removeToken, setToken, userId } = useToken();
+  const { removeToken, setToken, userId } = useToken();
   const [isOpen, setIsOpen] = React.useState(false)
 
   //TODO #2
@@ -45,7 +45,7 @@ function App() {
               <Navbar.Heading> M&#257;ori Dictionary</Navbar.Heading>
               <Navbar.Divider />
               <p>  </p>
-              {!token && token!=="" &&token!== undefined?  
+              {!(currentUser[4] === 1)?   
               <Button className="bp4-minimal" icon="log-in" text="Log in" onClick={() => { setIsOpen(true) }}/>
               :
               <LogoutButton token={removeToken} onLogout={() => window.location.reload()}></LogoutButton>

@@ -1,7 +1,6 @@
-import { Tab, Tabs, Card, EditableText, ButtonGroup, Elevation, Intent, Button, PopoverInteractionKind, Popover, Position } from "@blueprintjs/core";
+import { Tab, Tabs, Card, ButtonGroup, Elevation, Intent, Button, PopoverInteractionKind, Popover, Position } from "@blueprintjs/core";
 import React from 'react';
 import axios from "axios";
-import catCreationTab from "./catCreateTab";
 
 //Import images
 import airplane from './images/airplane.png';
@@ -35,8 +34,6 @@ import noimage from './images/noimage.png';
 import potato from './images/potato.jpg';
 import poutama from './images/poutama.jpg';
 import sinegraph from './images/sinegraph.jpg';
-import { SLIDER_PROGRESS } from "@blueprintjs/core/lib/esm/common/classes";
-import Login from "./Login";
 
 //Put images in list
 const images = [
@@ -77,7 +74,7 @@ const images = [
 function DictTab(props){
   const catList = props[0]
   const wordList = props[1]
-  const currentUser = props[2][0]
+  const userId = props[2][0]
   const isAdmin = props[2][4]
   const groupedByCat = [];
   for (const cat of catList){
@@ -91,6 +88,16 @@ function DictTab(props){
     }
     groupedByCat.push(catWords)
   }
+  const getInputValue = (event)=>{
+    // show the user input value to console
+    const userValue = event.target.value;
+    localStorage.setItem('category', userValue);
+  };
+
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
   return (          
     <Tabs
     id='category-tabs'
@@ -98,9 +105,35 @@ function DictTab(props){
     large = {true} 
     >
         {catList.map((cat, index) => (
-          myTabs([cat[0], cat[1], groupedByCat[index], isAdmin]) 
+          myTabs([cat[0], cat[1], groupedByCat[index], isAdmin], userId) 
 
         ))}
+        {isAdmin === 1?
+         <Tab id='create-cat' key={99} title='Create category'
+         panel={<div>
+              <h1>Add category</h1>
+              <Popover
+                    interactionKind={PopoverInteractionKind.CLICK}
+                    popoverClassName="bp4-popover-content-sizing"
+                    position={Position.RIGHT}
+                >
+                  <Button icon="add">Add</Button>
+                  <div>
+                      <h4>Edit the values below.</h4>
+                      <br></br>
+                      {localStorage.setItem('category', 'Name')}
+                      <input defaultValue={localStorage.getItem('category')} type="text" onChange={getInputValue} />
+                      <br></br>
+                      <br></br>
+                      {}
+                      <Button  onClick={() => {addCategory(localStorage.getItem('category'), userId); sleep(500); window.location.reload()}}>Add</Button>
+                  </div>
+                </Popover>           
+              </div>}
+         />
+        :
+          <></>
+        }
 
 
         <Tabs.Expander />
@@ -108,12 +141,19 @@ function DictTab(props){
 }
 
 
-function myTabs(props){
-    return <Tab id={props[0]} key={props[0]} title={props[1]} panel={makePanel(props)} />
+function myTabs(props, uid){
+    return <Tab id={props[0]} key={props[0]} title={props[1]} panel={makePanel(props, uid)} />
   }
 
-function makePanel(props){
+function makePanel(props, uid){
   const isAdmin = props[3]
+  const getInputValue = (event)=>{
+    // show the user input value to console
+    const userValue = event.target.value;
+    localStorage.setItem('english', userValue);
+  };
+
+
   return (<div key={props[0]}>
             <h1>{props[1]}</h1>
             { isAdmin === 1 ?
@@ -139,10 +179,12 @@ function makePanel(props){
                 <Button icon="add">Add word</Button>
                 <div>
                     <h4>Edit the values below.</h4>
-
+                    <br></br>
+                    {localStorage.setItem('english', 'Name')}
+                    <input defaultValue={localStorage.getItem('english')} type="text" onChange={getInputValue} />
                     <br></br>
                     <br></br>
-                    <Button  onClick={() => console.log('addword')}>Add</Button>
+                    <Button  onClick={() => {addWord(localStorage.getItem('english'), uid, props[0]); window.location.reload()}}>Add</Button>
                 </div>
               </Popover>
           </ButtonGroup>
@@ -178,6 +220,37 @@ function deleteCat(cat){
       }
   })
 }
+function addWord(english, uid, catId){
+  axios({
+    method: "GET",
+    url:"api/create-word/" + english + "/null/null/" + uid + "/1/"+ catId
+  })
+  .then((response) => {
+    console.log(202);  
+  }).catch((error) => {
+    if (error.response) {
+      console.log(error.response)
+      console.log(error.response.status)
+      console.log(error.response.headers)
+      }
+  })
+}
+function addCategory(name, uid){
+  axios({
+    method: "GET",
+    url:"api/create-category/" + name + "/null/" + uid 
+  })
+  .then((response) => {
+    console.log(202);  
+  }).catch((error) => {
+    if (error.response) {
+      console.log(error.response)
+      console.log(error.response.status)
+      console.log(error.response.headers)
+      }
+  })
+}
+
 function deleteWord(word){
   axios({
     method: "GET",
@@ -200,7 +273,7 @@ function deleteWord(word){
 function wordPanel(props, isAdmin){
   let wordImage = images[28];
   for (const image of images){
-    if (image.name == props[1]){
+    if (image.name === props[1]){
       wordImage = image;
     }
   }
@@ -210,7 +283,7 @@ function wordPanel(props, isAdmin){
         <h3>{props[1]}</h3>
         <p><i>{props[2]}</i></p>
         <p>{props[3]} <b>Level:</b> {props[4]}</p> 
-        <img className="image" src={wordImage.src}/>
+        <img className="image" src={wordImage.src} alt={wordImage.name}/>
         <p>Added {props[5]} by Admin #{props[6]}</p>
         <br></br>
         { isAdmin === 1 ?

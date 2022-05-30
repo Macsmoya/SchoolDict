@@ -6,18 +6,17 @@ import catCreationTab from "./catCreateTab";
 //Import images
 import airplane from './images/airplane.png';
 import apple from './images/apple.jpg';
-import baby from './images/babt.jpg';
+import baby from './images/baby.jpg';
 import bacon from './images/bacon.jpg';
 import banana from './images/banana.jpg';
 import bear from './images/bear.jpg';
 import bee from './images/bee.jpg';
-import hat from './images/boat.jpg';
 import boat from './images/boat.jpg';
 import boy from './images/boy.jpg';
 import butterfly from './images/butterfly.jpg';
 import cake from './images/cake.jpg';
 import canoe from './images/canoe.jpg';
-import car from './images/car.jpg';
+import car from './images/car.png';
 import cat from './images/cat.jpg';
 import chicken from './images/chicken.jpg';
 import clock from './images/clock.jpg';
@@ -164,12 +163,18 @@ function deleteCat(cat){
 
 
 function wordPanel(props){
+  let wordImage = images[28];
+  for (const image of images){
+    if (image.name == props[1]){
+      wordImage = image;
+    }
+  }
   return(
     <div key={props[0]} className="item">
       <Card interactive={true} className="" elevation={Elevation.TWO}>
-        <h5>{props[1]}</h5>
-        <p>{props[2]}</p>
-        <img src={apple}/>
+        <h3>{props[1]}</h3>
+        <p><i>{props[2]}</i></p>
+        <img className="image" src={wordImage.src}/>
       </Card>
       </div>)
 }

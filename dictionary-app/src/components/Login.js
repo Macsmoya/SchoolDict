@@ -8,7 +8,6 @@ function sleep(ms) {
 }
 
 function Login(props) {
-    const errorMessage = <p></p>
     const [loginForm, setloginForm] = useState({
       email: "",
       password: ""

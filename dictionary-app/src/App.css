@@ -49,3 +49,6 @@
   flex-basis: auto; /* default auto */;
   padding:5px;
 }
+.image{
+  width: 100px;
+}

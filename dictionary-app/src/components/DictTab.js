@@ -3,6 +3,69 @@ import React from 'react';
 import axios from "axios";
 import catCreationTab from "./catCreateTab";
 
+//Import images
+import airplane from './images/airplane.png';
+import apple from './images/apple.jpg';
+import baby from './images/babt.jpg';
+import bacon from './images/bacon.jpg';
+import banana from './images/banana.jpg';
+import bear from './images/bear.jpg';
+import bee from './images/bee.jpg';
+import bird from './images/boat.jpg';
+import boat from './images/boat.jpg';
+import boy from './images/boy.jpg';
+import butterfly from './images/butterfly.jpg';
+import cake from './images/cake.jpg';
+import canoe from './images/canoe.jpg';
+import car from './images/car.jpg';
+import cat from './images/cat.jpg';
+import chicken from './images/chicken.jpg';
+import clock from './images/clock.jpg';
+import cloud from './images/cloud.png';
+import computer from './images/computer.jpg';
+import cow from './images/cow.png';
+import cup from './images/cup.jpg';
+import doctor from './images/doctor.png';
+import dog from './images/dog.jpg';
+import egg from './images/egg.jpg';
+import electricity from './images/electricity.jpg';
+import hat from './images/hat.jpg';
+import icecream from './images/icecream.jpg';
+import milk from './images/milk.png';
+import noimage from './images/noimage.png';
+import potato from './images/potato.jpg';
+import poutama from './images/poutama.jpg';
+import sinegraph from './images/sinegraph.jpg';
+
+
+const images = [
+  {name:'aireplane', src:airplane},
+  {name:'apple', src:apple},
+  {name:'baby', src:baby},
+  {name:'bacon', src:bacon},
+  {name:'banana', src:banana},
+  {name:'bear', src:bear},
+  {name:'bee', src:bee},
+  {name:'bird', src:bird},
+  {name:'boat', src:boat},
+  {name:'boy', src:boy},
+  {name:'butterfly', src:butterfly},
+  {name:'cake', src:cake},
+  {name:'canoe', src:canoe},
+  {name:'car', src:car},
+  {name:'cat', src:cat},
+  {name:'chicken', src:chicken},
+  {name:'clock', src:clock},
+  {name:'cloud', src:cloud},
+  {name:'bird', src:bird},
+  {name:'bird', src:bird},
+  {name:'bird', src:bird},
+  {name:'bird', src:bird},
+  {name:'bird', src:bird},
+  {name:'bird', src:bird},
+  {name:'bird', src:bird},
+
+]
 function DictTab(props){
   const catList = props[0]
   const wordList = props[1]
@@ -92,12 +155,14 @@ function deleteCat(cat){
 }
 
 
+
 function wordPanel(props){
   return(
     <div key={props[0]} className="item">
       <Card interactive={true} className="" elevation={Elevation.TWO}>
         <h5>{props[1]}</h5>
         <p>{props[2]}</p>
+        <img src={apple}/>
       </Card>
       </div>)
 }

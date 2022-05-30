@@ -3,10 +3,11 @@ import logo from './logo.svg';
 import './App.css';
 import '@blueprintjs/core/lib/css/blueprint.css';
 import axios from 'axios';
-import { Button, Spinner, Navbar} from "@blueprintjs/core";
+import { Button, Spinner, Navbar, Classes, Dialog} from "@blueprintjs/core";
 import DictTab from './components/DictTab';
 import useToken from './components/useToken';
 import Login from './components/Login';
+import LogoutButton from './components/LogoutButton';
 
 
 function Welcome(props) {
@@ -14,12 +15,13 @@ function Welcome(props) {
 }
 
 
+
 function App() {
   const [currentUser, setCurrentUser] = useState(0);
   const [categoryList, setCategoryList] = useState(0);
   const [wordList, setWordList] = useState(0);
   const { token, removeToken, setToken } = useToken();
-  
+  const [isOpen, setIsOpen] = React.useState(false)
 
   //TODO #2
   useEffect(() => {
@@ -48,12 +50,12 @@ function App() {
           <Navbar.Group>
               <Navbar.Heading> M&#257;ori Dictionary</Navbar.Heading>
               <Navbar.Divider />
-              <Button className="bp4-minimal" icon="home" text="Admin"/>
-              <Button className="bp4-minimal" icon="document" text="Files" />
+              <Button className="bp4-minimal" icon="home" text="Admin" />
+              
               {!token && token!=="" &&token!== undefined?  
-              <Login setToken={setToken} />
+              <Button className="bp4-minimal" icon="log-in" text="Log in" onClick={() => { setIsOpen(true) }}/>
               :
-              <p>Logged in</p>
+              <LogoutButton token={removeToken}></LogoutButton>
               }
           </Navbar.Group>
         </Navbar>
@@ -89,6 +91,28 @@ function App() {
         }
         <ul>
           { currentUser }
+
+          <div style={{
+            display: 'block', width: 400, padding: 30
+        }}>
+            <h4>ReactJS Blueprint Overlay Component</h4>
+  
+            <Button onClick={() => { setIsOpen(true) }}>Toggle Overlay</Button>
+
+            <Dialog isOpen={isOpen} canOutsideClickClose={true} hasBackdrop={true} usePortal={true} onClose={() => setIsOpen(false) }>
+                <div className={Classes.DIALOG_BODY}>
+            <p>
+                <strong>
+                    Data integration is the seminal problem of the digital age. For over ten years, we’ve helped the
+                    world’s premier organizations rise to the challenge.
+                </strong>
+            </p>
+            <Login setToken={setToken}/>
+
+        </div>
+            </Dialog>        
+
+        </div >
           
          
 
